@@ -12,7 +12,7 @@ def setEnv(pipelineParams) {
 	//env.NEXUS_URL = "http://nexus-${pipelineParams.registryUsername}-cicd.${pipelineParams.ocpAppSuffix}"
 }
 
-def checkout(projectFolder = ".") {
+def checkoutCode(projectFolder = ".") {
 	echo "In checkout"
 	stage('Checkout') {
 
