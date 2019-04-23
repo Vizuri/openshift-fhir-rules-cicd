@@ -31,11 +31,11 @@ def call(body) {
 				echo "setting project_folder: default"
 				projectFolder = "."
 			}
-			steps.checkout(projectFolder)
 			
 			try {
-				steps.buildJava(projectFolder)
-				steps.deployJava(projectFolder)
+				steps.checkout(projectFolder);
+				steps.buildJava(projectFolder);
+				steps.deployJava(projectFolder);
 			} catch (e) {
 				currentBuild.result = "FAILED"
 				throw e
