@@ -26,7 +26,7 @@ def checkout() {
 		}
 		else {
 			sh (
-					script: "mvn -B help:evaluate -Dexpression=project.version | grep -e '^[^\\[]' > release.txt",
+					script: "mvn -f ${projectFolder}/pom.xml -B help:evaluate -Dexpression=project.version | grep -e '^[^\\[]' > release.txt",
 					returnStdout: true,
 					returnStatus: false
 					)
