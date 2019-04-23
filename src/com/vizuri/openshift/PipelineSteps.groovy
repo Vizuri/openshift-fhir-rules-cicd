@@ -8,7 +8,8 @@ def setEnv(pipelineParams) {
 	env.REGISTRY_USERNAME = pipelineParams.registryUsername;
 	env.REGISTRY_PASSWORD = pipelineParams.registryPassword;
 	env.CONTAINER_REGISTRY = "https://${pipelineParams.imageBase}"
-	env.NEXUS_URL = "http://nexus-${pipelineParams.registryUsername}-cicd.${pipelineParams.ocpAppSuffix}"
+	env.NEXUS_URL = pipelineParams.nexusUrl;
+	//env.NEXUS_URL = "http://nexus-${pipelineParams.registryUsername}-cicd.${pipelineParams.ocpAppSuffix}"
 }
 
 def checkout() {
