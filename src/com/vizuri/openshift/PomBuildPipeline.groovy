@@ -31,7 +31,7 @@ def call(body) {
 				echo "setting project_folder: default"
 				projectFolder = "."
 			}
-			steps.checkout()
+			steps.checkout(projectFolder)
 			
 			try {
 				steps.buildJava(projectFolder)
