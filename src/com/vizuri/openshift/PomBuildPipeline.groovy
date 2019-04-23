@@ -22,6 +22,7 @@ def call(body) {
 		}
 		node ("maven-podman") {
 			steps.setEnv(pipelineParams);
+			steps.checkout(pipelineParams.project_folder);
 			def projectFolder;
 			if(pipelineParams.project_folder) {
 				echo "setting project_folder: ${pipelineParams.project_folder}"
@@ -33,7 +34,6 @@ def call(body) {
 			}
 			
 			try {
-				steps.checkout(projectFolder);
 				steps.buildJava(projectFolder);
 				steps.deployJava(projectFolder);
 			} catch (e) {
